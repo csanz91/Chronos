@@ -62,7 +62,7 @@ export default {
       return this.$store.getters.running && this.selected
     },
     dataIsValid() {
-      return !!(this.proyect.proyectName && this.proyect.proyectDescription)
+      return !!(this.proyect.proyectName)
     }
   },
 
