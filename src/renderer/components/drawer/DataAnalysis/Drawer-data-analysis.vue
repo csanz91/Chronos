@@ -103,7 +103,7 @@ export default {
         //     if (proyect && proyect.isSeppProyect) {
         //       const initialDate = new Date(workEvent.workEventTimeData.initialUtcTimestamp * 1000)
         //       const hoursDuration = Math.round((workEvent.duration / 3600 + Number.EPSILON) * 100) / 100
-        //       SeppelServices.uploadWork(userId, initialDate, proyect.proyectId, hoursDuration)
+        //       SeppelServices.uploadWork(userId, initialDate, proyect.extProyectId, hoursDuration)
         //     }
         //   })
         // })

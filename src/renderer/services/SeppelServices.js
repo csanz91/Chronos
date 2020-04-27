@@ -1,6 +1,5 @@
 import fetch from 'node-fetch'
 
-import { ProyectData } from '@/utils/ProyectData'
 import { localStore } from '../store/modules/index'
 
 var cookie = ''
@@ -83,11 +82,13 @@ export default {
         if (m.length !== 4) {
           throw Error('The proyects could not be recovered')
         }
-        const proyectId = m[2]
-        const proyectName = m[1]
-        const proyectDescription = m[3]
-        const isSeppProyect = true
-        proyects.push(new ProyectData(proyectId, proyectName, proyectDescription, isSeppProyect))
+        const newProyect = {
+          proyectName: m[1],
+          extProyectId: m[2],
+          proyectDescription: m[3],
+          isSeppProyect: true
+        }
+        proyects.push(newProyect)
       }
       return proyects
     })
