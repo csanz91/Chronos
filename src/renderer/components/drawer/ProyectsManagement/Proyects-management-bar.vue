@@ -134,7 +134,8 @@ export default {
 }
 
 .Proyect-selected-running{
-  animation: blink 1s infinite alternate;
+  animation: blink 1s infinite alternate steps(24);
+  transform: rotateZ(360deg);
 }
 
 .Proyect-title {

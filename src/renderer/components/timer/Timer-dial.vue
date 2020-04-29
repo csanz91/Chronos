@@ -145,11 +145,14 @@ export default {
 
 .Dial-fill--work {
   stroke: $colorRed;
-  animation: glow 1s infinite alternate;
+  transform: translateZ(0);
+  will-change: transform;
+  animation: glow 1s infinite alternate steps(12);
+
 }
 
 .Dial-fill--break {
-  animation: blink 1s infinite alternate;
+  animation: blink 1s infinite alternate steps(12);
 }
 
 .Dial-fill--finished {

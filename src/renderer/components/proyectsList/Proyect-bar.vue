@@ -201,21 +201,12 @@ export default {
   height: 100%;
 }
 
-@keyframes glow {
-  from {
-    stroke-width: 10;
-  }
-  to {
-    stroke-width: 2;
-  }
-}
-
 @keyframes blink {
   to {
-    background-color: lighten($colorLightNavy, 5%);
+    background-color: lighten($colorLightNavy, 7%);
   }
   from {
-    background-color: lighten($colorLightNavy, 15%);
+    background-color: lighten($colorLightNavy, 13%);
   }
 }
 
@@ -224,7 +215,9 @@ export default {
 }
 
 .Proyect-selected-running{
-  animation: blink 1s infinite alternate;
+  animation: blink 2s infinite alternate steps(24);
+  transform: rotateZ(360deg);
+  will-change: transform;
 }
 
 .Proyect-title {
@@ -241,36 +234,12 @@ export default {
   padding: 12px 0 6px 12px;
 }
 
-.Proyects-heading {
-  font-size: 18px;
-  letter-spacing: 0.05rem;
-  padding: 10px;
-  text-align: left;
-}
-
 .Proyect-wrapper {
   background-color: $colorLightNavy;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
   margin: 12px 0;
-}
-
-.Dial-fill--work {
-  stroke: $colorRed;
-  animation: glow 1s infinite alternate;
-}
-
-.Dial-fill--break {
-  animation: blink 1s infinite alternate;
-}
-
-.Dial-fill--finished {
-  stroke: $colorGreen;
-}
-
-.Dial-fill--idle {
-  stroke: $colorBlueGrey;
 }
 
 </style>
