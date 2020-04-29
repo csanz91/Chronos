@@ -16,6 +16,9 @@ const getters = {
   duration() {
     return state.currentWorkEvent.duration
   },
+  currentWorkDate() {
+    return state.currentWorkEvent.date
+  },
   formattedDuration() {
     return state.currentWorkEvent.getFormattedDuration()
   },

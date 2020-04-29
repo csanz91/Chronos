@@ -1,6 +1,8 @@
 <template>
   <div class="Timer-wrapper">
     <app-tray-icon />
+    <p class="Today-worked">Worked Today: {{timeWorkedToday}}</p>
+
     <app-timer-dial :current-state="currentState">
     </app-timer-dial>
     <textarea v-if="running || finished"
@@ -34,6 +36,10 @@ export default {
 
     finished() {
       return this.$store.getters.finished
+    },
+
+    timeWorkedToday() {
+      return this.$store.getters.timeWorkedToday
     },
 
     description: {
@@ -78,5 +84,11 @@ export default {
 .Timer-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.Today-worked {
+  font-size: 20px;
+  margin: 0;
+  align-self: center;
 }
 </style>

@@ -1,5 +1,5 @@
 import { WorkDay } from '@/utils/WorkDay'
-import { moveDate } from '@/utils/TimeUtils'
+import { moveDate, formatDuration } from '@/utils/TimeUtils'
 import { localStore } from './index'
 
 function recoverWorkDayObjects(object) {
@@ -62,6 +62,17 @@ const getters = {
   workDay: () => (date) => {
     var workDay = state.workEvents[date]
     return workDay
+  },
+
+  timeWorkedToday: (_, getters) => {
+    const today = new Date().toDateString()
+    const todayWorkDay = getters.workDay(today)
+    let totalSeconds = getters.currentWorkDate === today && getters.running ? getters.duration : 0
+    if (todayWorkDay) {
+      totalSeconds += Object.values(todayWorkDay.aggWorkEvents).reduce((a, b) => a + b, 0)
+    }
+
+    return formatDuration(totalSeconds)
   }
 }
 
