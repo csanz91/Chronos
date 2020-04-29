@@ -122,7 +122,7 @@ export default {
   margin: 12px 0;
   padding: 12px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-auto-flow: dense;
 }
 
