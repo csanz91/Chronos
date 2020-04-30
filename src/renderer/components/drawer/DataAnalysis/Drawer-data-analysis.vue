@@ -46,7 +46,6 @@
 import DatePicker from 'v-calendar/lib/components/date-picker.umd'
 import proyectSummaryBar from '@/components/drawer/DataAnalysis/Proyect-summary-bar'
 import proyectSummaryTable from '@/components/drawer/DataAnalysis/Proyect-summary-table'
-import { moveDate } from '@/utils/TimeUtils'
 import SeppelServices from '@/services/SeppelServices'
 
 export default {
@@ -59,7 +58,7 @@ export default {
   data() {
     return {
       selectedRange: {
-        start: moveDate(new Date(), -1),
+        start: new Date(),
         end: new Date()
       }
     }
