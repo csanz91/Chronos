@@ -4,6 +4,7 @@
     <p class="Dial-time">{{ formattedDuration }}</p>
     <p class="Dial-label">{{ currentRoundDisplayLabel }}</p>
     <svg
+      @click="clockClicked"
       version="1.2"
       baseProfile="tiny"
       id="Layer_1"
@@ -93,6 +94,15 @@ export default {
           return 'Dial-fill--finished'
         default:
           return 'Dial-fill--idle'
+      }
+    }
+  },
+  methods: {
+    clockClicked() {
+      if (this.currentState === ON_BREAK) {
+        this.$store.dispatch('resumeWork')
+      } else if (this.currentState === WORKING) {
+        this.$store.dispatch('holdWork')
       }
     }
   }
