@@ -54,7 +54,8 @@ export default {
         },
         {
           label: 'Worked During',
-          field: 'duration'
+          field: this.durationField,
+          sortFn: this.sortDuration
         }
       ]
     }
@@ -77,12 +78,20 @@ export default {
               workDescription: workEvent.description,
               initialUtcTimestamp: workEvent.workEventTimeData.initialUtcTimestamp,
               finalUtcTimestamp: workEvent.workEventTimeData.finalUtcTimestamp,
-              duration: formatDuration(workEvent.duration)
+              duration: workEvent.duration
             })
           }
         })
       })
       return rows
+    }
+  },
+  methods: {
+    durationField(rowObj) {
+      return formatDuration(rowObj.duration)
+    },
+    sortDuration(x, y, col, rowX, rowY) {
+      return (rowX.duration < rowY.duration ? -1 : (rowX.duration > rowY.duration ? 1 : 0))
     }
   }
 }
