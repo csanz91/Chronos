@@ -1,6 +1,6 @@
 <template>
 <div class="Proyect-wrapper">
-    <div>
+    <div class="Proyect-texts">
         <p class="Proyect-title">{{proyectName}}</p>
         <p class="Proyect-description">{{proyectDescription}}</p>
     </div>
@@ -41,6 +41,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.Proyect-texts {
+  align-content: space-evenly;
+  display: grid;
+}
 
 .Proyect-title {
   color: $colorWhite;
