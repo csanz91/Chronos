@@ -27,7 +27,6 @@
           </svg>
         </div>
       </div>
-      <div v-if="running" style="width:5px"></div>
       <transition name="fade" mode="out-in">
         <div class="Button" v-if="!running" @click="startWork" :key="'start'">
           <div class="Button-icon-wrapper">
