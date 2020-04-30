@@ -1,10 +1,10 @@
 {
-  "version": "1.0.1",
-  "bin": [["chronos-1.0.1-portable.exe", "Chronos"]],
-  "url": "https://github.com/csanz91/chronos/releases/download/v1.0.1/chronos-1.0.1-portable.exe",
+  "version": "1.0.2",
+  "bin": [["chronos-1.0.2-portable.exe", "Chronos"]],
+  "url": "https://github.com/csanz91/chronos/releases/download/v1.0.2/chronos-1.0.2-portable.exe",
   "hash": "81401b70875f4c4df57d6f365700c4cd7aa1bd3d7ca66dec70380dcc73cd32f9",
   "description": "Chronos is a simple and visually-pleasing time tracking tool.",
   "homepage": "https://github.com/csanz91/chronos",
   "license": "MIT",
-  "shortcuts": [["chronos-1.0.1-portable.exe", "Chronos"]]
+  "shortcuts": [["chronos-1.0.2-portable.exe", "Chronos"]]
 }
