@@ -23,18 +23,33 @@ const winURL =
     ? 'http://localhost:9080'
     : `file://${__dirname}/index.html`
 
-app.on('ready', () => {
-  createWindow()
-  const minToTray = localStore.get('minToTray')
-  const alwaysOnTop = localStore.get('alwaysOnTop')
+const gotTheLock = app.requestSingleInstanceLock()
 
-  if (minToTray) {
-    createTray()
-  }
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      if (!mainWindow.isVisible()) mainWindow.show()
+      mainWindow.focus()
+    }
+  })
 
-  // this must be set after window has been created on ubuntu 18.04
-  mainWindow.setAlwaysOnTop(alwaysOnTop)
-})
+  app.on('ready', () => {
+    createWindow()
+    const minToTray = localStore.get('minToTray')
+    const alwaysOnTop = localStore.get('alwaysOnTop')
+
+    if (minToTray) {
+      createTray()
+    }
+
+    // this must be set after window has been created on ubuntu 18.04
+    mainWindow.setAlwaysOnTop(alwaysOnTop)
+  })
+}
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -99,10 +114,10 @@ function createWindow() {
     icon: path.join(__static, 'icon.png'),
     // resizable: false,
     useContentSize: true,
-    width: 800,
-    height: 600,
+    width: 950,
+    height: 800,
     webPreferences: {
-      backgroundThrottling: false,
+      backgroundThrottling: true,
       nodeIntegration: true
     }
   })
