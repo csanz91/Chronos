@@ -82,10 +82,9 @@ export default {
     selectThisWeek() {
       var curr = new Date() // get current date
       var first = curr.getDate() - ((curr.getDay() + 6) % 7) // First day is the day of the month - the day of the week
-      var last = first + 6 // last day is the first day + 6
 
       this.selectedRange.start = new Date(curr.setDate(first))
-      this.selectedRange.end = new Date(curr.setDate(last))
+      this.selectedRange.end = new Date(curr.setDate(curr.getDate() + 6))
     },
     selectThisMonth() {
       var date = new Date()
