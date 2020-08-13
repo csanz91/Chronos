@@ -3,13 +3,13 @@ import fetch from 'node-fetch'
 import { localStore } from '../store/modules/index'
 
 var cookie = ''
-const url = 'https://portal.seppelec.com/a_horas/s1.php'
+const url = 'https://xxx'
 
 function login() {
   const params = new URLSearchParams()
   params.append('usuario', localStore.get('seppelMail'))
   params.append('password', localStore.get('seppelPassword'))
-  return fetch('https://portal.seppelec.com/core/login.php', {
+  return fetch('https://xxx', {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
     },

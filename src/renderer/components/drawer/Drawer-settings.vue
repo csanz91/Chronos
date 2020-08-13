@@ -23,7 +23,7 @@
       class="Setting-wrapper Bar">
       <p class="Setting-title">Username</p>
       <input
-            placeholder="Seppelec Mail"
+            placeholder="XXX Mail"
             ref="nameField"
             class="Input-field"
             v-model="seppelMail"
@@ -34,7 +34,7 @@
       class="Setting-wrapper Bar">
       <p class="Setting-title">Password</p>
       <input
-            placeholder="Seppelec Password"
+            placeholder="XXX Password"
             ref="nameField"
             class="Input-field"
             type="password"
