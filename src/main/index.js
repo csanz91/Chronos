@@ -1,11 +1,9 @@
 'use strict'
 
-import { createLocalStore } from './../renderer/utils/LocalStore'
+import { store } from './../renderer/utils/SettingsStore'
 import { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage } from 'electron'
 
 const path = require('path')
-
-const localStore = createLocalStore()
 
 /**
  * Set `__static` path to static files in production
@@ -39,8 +37,8 @@ if (!gotTheLock) {
 
   app.on('ready', () => {
     createWindow()
-    const minToTray = localStore.get('minToTray')
-    const alwaysOnTop = localStore.get('alwaysOnTop')
+    const minToTray = store.get('minToTray')
+    const alwaysOnTop = store.get('alwaysOnTop')
 
     if (minToTray) {
       createTray()
@@ -105,7 +103,7 @@ function createTray() {
 }
 
 function createWindow() {
-  const alwaysOnTop = localStore.get('alwaysOnTop')
+  const alwaysOnTop = store.get('alwaysOnTop')
   mainWindow = new BrowserWindow({
     alwaysOnTop,
     backgroundColor: '#2F384B',

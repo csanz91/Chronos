@@ -1,6 +1,6 @@
 import { getUtcTimestamp } from '@/utils/TimeUtils'
 import { ProyectData } from '@/utils/ProyectData'
-import { localStore } from './index'
+import { store } from '@/utils/SettingsStore'
 
 import Vue from 'vue'
 
@@ -12,7 +12,7 @@ function recoverProyectsObjects(object) {
 }
 
 const state = {
-  proyects: recoverProyectsObjects(localStore.get('proyects'))
+  proyects: recoverProyectsObjects(store.get('proyects'))
 }
 
 const getters = {
@@ -35,7 +35,7 @@ const mutations = {
     Vue.delete(state.proyects, proyectId)
   },
   ARCHIVE_PROYECTS(state) {
-    localStore.set('proyects', state.proyects)
+    store.set('proyects', state.proyects)
   }
 }
 

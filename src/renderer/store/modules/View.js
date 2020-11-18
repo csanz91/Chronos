@@ -1,12 +1,12 @@
-import { localStore } from './index'
+import { store } from '@/utils/SettingsStore'
 
 const state = {
   currentDrawer: 'appDrawerSettings',
   drawerOpen: false,
-  alwaysOnTop: localStore.get('alwaysOnTop'),
-  minToTray: localStore.get('minToTray'),
-  seppelMail: localStore.get('seppelMail'),
-  seppelPassword: localStore.get('seppelPassword'),
+  alwaysOnTop: store.get('alwaysOnTop'),
+  minToTray: store.get('minToTray'),
+  seppelMail: store.get('seppelMail'),
+  seppelPassword: store.get('seppelPassword'),
   os: process.platform,
   dayOverflowWarning: false,
   workTooShortWarning: false
@@ -49,7 +49,7 @@ const getters = {
 
 const mutations = {
   SET_SETTING(state, payload) {
-    localStore.set(payload.key, payload.val)
+    store.set(payload.key, payload.val)
   },
 
   SET_VIEW_STATE(state, payload) {

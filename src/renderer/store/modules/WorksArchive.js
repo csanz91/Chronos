@@ -1,6 +1,6 @@
 import { WorkDay } from '@/utils/WorkDay'
 import { moveDate, formatDuration } from '@/utils/TimeUtils'
-import { localStore } from './index'
+import { store } from '@/utils/SettingsStore'
 
 function recoverWorkDayObjects(object) {
   return Object.keys(object).reduce(function(result, key) {
@@ -10,7 +10,7 @@ function recoverWorkDayObjects(object) {
 }
 
 const state = {
-  workEvents: recoverWorkDayObjects(localStore.get('workEvents'))
+  workEvents: recoverWorkDayObjects(store.get('workEvents'))
 }
 
 const getters = {
@@ -88,7 +88,7 @@ const mutations = {
   },
 
   SAVE_WORK_EVENTS(state) {
-    localStore.set('workEvents', state.workEvents)
+    store.set('workEvents', state.workEvents)
   }
 }
 

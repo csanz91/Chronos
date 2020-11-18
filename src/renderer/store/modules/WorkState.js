@@ -2,11 +2,11 @@ import { WorkEvent } from '@/utils/WorkEvent'
 import { getUtcTimestamp, getCurrentDate } from '@/utils/TimeUtils'
 import { WorkEventTimeData } from '../../utils/WorkEventTimeData'
 import { WORKING, ON_BREAK, IDLE, FINISHED } from '../../utils/EventStates'
-import { localStore } from './index'
+import { store } from '@/utils/SettingsStore'
 
 const state = {
-  currentWorkEvent: Object.assign(new WorkEvent(), localStore.get('currentWorkEvent')),
-  lastActiveTime: localStore.get('lastActiveTime')
+  currentWorkEvent: Object.assign(new WorkEvent(), store.get('currentWorkEvent')),
+  lastActiveTime: store.get('lastActiveTime')
 }
 
 const getters = {
@@ -95,12 +95,12 @@ const mutations = {
   },
 
   SAVE_CURRENT_WORK(state) {
-    localStore.set('currentWorkEvent', state.currentWorkEvent)
+    store.set('currentWorkEvent', state.currentWorkEvent)
   },
 
   SAVE_LAST_ACTIVE_TIME(state) {
     state.lastActiveTime = getUtcTimestamp()
-    localStore.set('lastActiveTime', state.lastActiveTime)
+    store.set('lastActiveTime', state.lastActiveTime)
   }
 }
 
