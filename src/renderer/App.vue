@@ -90,6 +90,7 @@ export default {
       () => this.$store.dispatch('checkDayOverflow'),
       10000
     )
+    this.$store.dispatch('checkDayOverflow')
   },
   beforeDestroy() {
     clearInterval(this.durationInterval)
