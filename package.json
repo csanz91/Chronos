@@ -1,6 +1,6 @@
 {
   "name": "chronos",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": {
     "email": "cesarsanz.91@gmail.com",
     "name": "Cesar Sanz",
@@ -64,10 +64,10 @@
     }
   },
   "dependencies": {
-    "animejs": "^3.2.0",
+    "animejs": "^3.2.1",
     "electron-store": "^6.0.1",
     "node-fetch": "^2.6.1",
-    "node-notifier": "^6.0.0",
+    "node-notifier": "^8.0.1",
     "v-calendar": "^1.0.8",
     "vue": "^2.6.12",
     "vue-electron": "^1.0.6",
