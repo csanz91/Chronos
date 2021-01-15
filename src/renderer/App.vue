@@ -90,11 +90,16 @@ export default {
       () => this.$store.dispatch('checkDayOverflow'),
       10000
     )
+    this.updateWorkReminder = setInterval(
+      () => this.$store.dispatch('updateWorkReminder'),
+      30 * 60 * 1000
+    )
     this.$store.dispatch('checkDayOverflow')
   },
   beforeDestroy() {
     clearInterval(this.durationInterval)
     clearInterval(this.dayOverflowInterval)
+    clearInterval(this.updateWorkReminder)
   }
 }
 </script>

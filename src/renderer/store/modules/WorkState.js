@@ -4,6 +4,9 @@ import { WorkEventTimeData } from '../../utils/WorkEventTimeData'
 import { WORKING, ON_BREAK, IDLE, FINISHED } from '../../utils/EventStates'
 import { store } from '@/utils/SettingsStore'
 
+const notifier = require('node-notifier')
+const path = require('path')
+
 const state = {
   currentWorkEvent: Object.assign(new WorkEvent(), store.get('currentWorkEvent')),
   lastActiveTime: store.get('lastActiveTime')
@@ -188,7 +191,24 @@ const actions = {
       commit('SAVE_CURRENT_WORK')
     }
     commit('SAVE_LAST_ACTIVE_TIME')
+  },
+
+  updateWorkReminder(context, payload) {
+    if (getters.working) {
+      // Do not keep the notifications
+      notifier.notify({
+        remove: 'ALL'
+      })
+      notifier.notify({
+        title: 'Reminder',
+        message: 'Remember to update your work',
+        sound: false,
+        icon: path.join(__static, 'icon.png'),
+        appID: 'com.csm.chronos'
+      })
+    }
   }
+
 }
 
 export default {
