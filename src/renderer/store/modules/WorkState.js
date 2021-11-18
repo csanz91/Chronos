@@ -193,7 +193,7 @@ const actions = {
     commit('SAVE_LAST_ACTIVE_TIME')
   },
 
-  updateWorkReminder(context, payload) {
+  updateWorkReminder({ commit, getters, state }) {
     if (getters.working) {
       // Do not keep the notifications
       notifier.notify({
